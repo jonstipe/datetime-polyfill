@@ -175,25 +175,15 @@
         if (step !== undefined && step != 'any') {
           var kNum = inDate.getTime();
           var raisedStep = step * 1000;
-          if (min !== undefined) {
-            var minNum = min.getTime();
-            var stepDiff = (kNum - minNum) % raisedStep;
-            var stepDiff2 = raisedStep - stepDiff;
-            if (stepDiff == 0) return inDate;
-            else {
-              if (stepDiff > stepDiff2) return new Date(inDate.getTime() + stepDiff2);
-              else return new Date(inDate.getTime() - stepDiff);
-            }
-          } else if (max !== undefined) {
-            var maxNum = max.getTime();
-            var stepDiff = (maxNum - kNum) % raisedStep;
-            var stepDiff2 = raisedStep - stepDiff;
-            if (stepDiff == 0) return inDate;
-            else {
-              if (stepDiff > stepDiff2) return new Date(inDate.getTime() - stepDiff2);
-              else return new Date(inDate.getTime() + stepDiff);
-            }
-          } else return inDate;
+          if (min === undefined) min = new Date(0);
+          var minNum = min.getTime();
+          var stepDiff = (kNum - minNum) % raisedStep;
+          var stepDiff2 = raisedStep - stepDiff;
+          if (stepDiff == 0) return inDate;
+          else {
+            if (stepDiff > stepDiff2) return new Date(inDate.getTime() + stepDiff2);
+            else return new Date(inDate.getTime() - stepDiff);
+          }
         } else return inDate;
       }
       $('input[type="datetime"]').each(function(index) {
