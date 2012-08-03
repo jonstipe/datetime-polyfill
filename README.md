@@ -4,7 +4,7 @@ This is a polyfill for implementing the HTML5 `<input type="datetime">` element 
 
 ## Usage
 
-Using it is easy — simply include the `datetime-polyfill.js` file in the HEAD of the HTML page.  
+Using it is easy — simply include the `datetime-polyfill.min.js` file in the HEAD of the HTML page.  
 You can then use `<input type="datetime">` elements normally.
 
 If the script detects that the browser doesn't support `<input type="datetime">`, it will search for these elements and replace them with a jQuery UI datepicker to select the date, and a normal text field with Javascript attached to make it function as a time selector. The date/time selection is stored in a hidden form field and submitted with the form in the standard format.
