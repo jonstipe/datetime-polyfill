@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <title>HTML5 Datetime polyfill</title>
+    <meta name="author" content="Jonathan Stipe" />
+    <meta name="copyright" content="&copy; 2012 Jonathan Stipe" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery.ui.all.css" />
+    <link rel="stylesheet" href="datetime-polyfill.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+    <script type="text/javascript" src="datetime-polyfill.js"></script>
+    <script type="text/javascript">
+//<![CDATA[
+$(function() {
+  var dtElem = document.createElement("dt"),
+      ddElem = document.createElement("dd"),
+      inputElem = document.createElement("input");
+    dtElem.appendChild(document.createTextNode("Dynamically generated element"));
+    $(inputElem).attr({
+      type: 'datetime',
+      name: 'generatedElement',
+      value: '2000-07-01T12:00Z',
+      min: '2000-01-03T00:00Z',
+      max: '2000-12-29T23:59Z'
+    });
+    ddElem.appendChild(inputElem);
+    $('dl').first().append(dtElem).append(ddElem);
+    $(inputElem).inputDateTime();
+});
+//]]>
+    </script>
+  </head>
+  <body>
+<form id="form-demo"> 
+<dl>
+<dt>datetime (with value, min, and max)</dt>
+<dd><input type="datetime" name="myDateTime0" value="2000-07-01T12:00Z" min="2000-01-03T00:00Z" max="2000-12-29T23:59Z" /></dd>
+
+<dt>datetime (with value and max)</dt>
+<dd><input type="datetime" name="myDateTime1" value="2000-07-01T12:00Z" max="2000-12-31T23:59Z" /></dd>
+
+<dt>datetime (with value and min)</dt>
+<dd><input type="datetime" name="myDateTime2" value="2000-07-01T12:00Z" min="2000-01-01T00:00Z" /></dd>
+
+<dt>datetime (with value and step)</dt>
+<dd><input type="datetime" name="myDateTime3" value="2000-07-01T12:00Z" step="60" /></dd>
+
+<dt>datetime (with value, min, max, and step)</dt>
+<dd><input type="datetime" name="myDateTime4" value="2000-07-01T12:00Z" min="2000-01-01T00:00Z" max="2000-12-31T23:59Z" step="60" /></dd>
+
+<dt>datetime (with min and max)</dt>
+<dd><input type="datetime" name="myDateTime5" min="2000-01-01T00:00Z" max="2000-12-31T23:59Z" /></dd>
+
+<dt>datetime (with just min)</dt>
+<dd><input type="datetime" name="myDateTime6" min="2000-01-01T00:00Z" /></dd>
+
+<dt>datetime (with just max)</dt>
+<dd><input type="datetime" name="myDateTime7" max="2000-12-31T23:59Z" /></dd>
+
+<dt>datetime (with just step)</dt>
+<dd><input type="datetime" name="myDateTime8" step="60" /></dd>
+
+<dt>datetime (with min, max, and step)</dt>
+<dd><input type="datetime" name="myDateTime9" min="2000-01-01T00:00Z" max="2000-12-31T23:59Z" step="60" /></dd>
+
+<dt>datetime (with min and step)</dt>
+<dd><input type="datetime" name="myDateTime10" min="2000-01-01T00:00Z" step="60" /></dd>
+
+<dt>datetime (with max and step)</dt>
+<dd><input type="datetime" name="myDateTime11" max="2000-12-31T23:59Z" step="60" /></dd>
+
+<dt>datetime (with value, min, max, and step=any)</dt>
+<dd><input type="datetime" name="myDateTime12" value="2000-07-01T12:00Z" min="2000-01-01T00:00Z" max="2000-12-31T23:59Z" step="any" /></dd>
+
+<dt>datetime (with value, max, and step=any)</dt>
+<dd><input type="datetime" name="myDateTime13" value="2000-07-01T12:00Z" max="2000-12-31T23:59Z" step="any" /></dd>
+
+<dt>datetime (with value, min, and step=any)</dt>
+<dd><input type="datetime" name="myDateTime14" value="2000-07-01T12:00Z" min="2000-01-01T00:00Z" step="any" /></dd>
+
+<dt>datetime (with max and step=any)</dt>
+<dd><input type="datetime" name="myDateTime15" max="2000-12-31T23:59Z" step="any" /></dd>
+
+<dt>datetime (with min and step=any)</dt>
+<dd><input type="datetime" name="myDateTime16" min="2000-01-01T00:00Z" step="any" /></dd>
+
+<dt>datetime (with step=any)</dt>
+<dd><input type="datetime" name="myDateTime17" step="any" /></dd>
+
+<dt>datetime (without anything)</dt>
+<dd><input type="datetime" name="myDateTime18" /></dd>
+</dl>
+<input type="submit" />
+</form>
+
+<a href="https://github.com/jonstipe/datetime-polyfill">Back to GitHub repo</a>
+</body>
+</html>
